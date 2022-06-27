@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "分类查找",
+  "usingComponents": {
+    "van-button": "../../vant/weapp/dist/button/index",
+    "van-search": "../../vant/weapp/dist/search/index"
+  }
+}

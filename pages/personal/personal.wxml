@@ -1,0 +1,85 @@
+<view class="container">
+    <!-- 头像部分 -->
+    <view class="headimg-box">
+        <view style="width:70%;display: flex;align-items: center;">
+            <view class="img">
+                <image wx:if="{{useobj.avatar}}" mode="aspectFill" src="{{useobj.avatar}}"></image>
+                <image wx:else mode="aspectFill" src="../../image/headimg.png"></image>
+            </view>
+
+            <view class="name">
+                <view wx:if="{{useobj.username}}" style="font-size: 32rpx;margin-right: 20rpx;">{{useobj.username}}</view>
+                <view wx:else style="font-size: 32rpx;margin-right: 20rpx;" bindtap="login">立即登录</view>
+                <image wx:if="{{useobj.username}}" style="width: 32rpx;height: 32rpx;" mode="aspectFill" src="../../image/amend.png"></image>
+            </view>
+        </view>
+        <view wx:if="{{useobj.username}}" class="loginout-btn">退出登录</view>
+    </view>
+    <!-- 积分 -->
+    <view class="data-show">
+        <view class="show-item borright">
+            <text wx:if="{{useobj.score}}">{{useobj.score}}</text>
+            <text wx:else>0</text>
+            <text style="color: #999999;">积分</text>
+        </view>
+        <view class="show-item borright">
+            <text wx:if="{{useobj.likeNum}}">{{useobj.likeNum}}</text>
+            <text wx:else>0</text>
+            <text style="color: #999999;">喜欢</text>
+        </view>
+        <view class="show-item">
+            <text>0</text>
+            <text style="color: #999999;">下载</text>
+        </view>
+    </view>
+    <!-- 作品集 -->
+    <view class="showlist">
+        <!-- <view class="borbottom">作品集(0)</view> -->
+        <view bindtap="changenum" data-index="1">
+            <text class="{{num==1?'bomblue':''}}">喜欢({{useobj.likeNum}})</text>
+        </view>
+        <view bindtap="changenum" data-index="2">
+            <text class="{{num==2?'bomblue':''}}">收藏({{useobj.collectNum}})</text>
+        </view>
+        <!-- <view>下载(0)</view> -->
+    </view>
+    <!-- 暂无数据 -->
+    <view class="nodata" wx:if="{{loginShow==false}}">
+        <view class="img-box">
+            <image style="width: 200rpx;height: 200rpx;" mode="aspectFill" src="../../image/nodata.png"></image>
+            <view style="font-size: 24rpx;color: #999999;padding: 20rpx 0;">请登录后查看</view>
+        </view>
+        <view>
+            <button class="loginbtn" wx:if="{{loginShow2==false}}" bindtap="login">一键授权</button>
+            <button class="loginbtn" wx:if="{{loginShow2==true}}" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">手机号授权</button>
+        </view>
+
+    </view>
+    <view class="form-box" wx:if="{{loginShow==true}}">
+        <view class="like-item" wx:for="{{likeList}}" bindtap="navTodetail" data-id="{{item.artWorkId}}">
+            <view class="top">
+                <image wx:if="{{item.type==1}}" mode="aspectFill" src="{{item.picUrl}}"></image>
+                <video class="vi" wx:if="{{item.type==2}}"  objectFit="cover" controls  src="{{item.picUrl}}"  />
+                <view class="type">
+                    <view class="name-item">
+                        <image src="../../image/watch1.png"></image>
+                        <text>{{item.numView}}</text>
+                    </view>
+                    <view class="name-item">
+                        <image src="../../image/collect1.png"></image>
+                        <text>{{item.numLike}}</text>
+                    </view>
+                    <view class="name-item">
+                        <image src="../../image/downup1.png"></image>
+                        <text>{{item.numDownload}}</text>
+                    </view>
+                </view>
+            </view>
+
+            <view class="yu">{{item.description}}</view>
+
+        </view>
+        <view class="like-item" wx:if="{{likeList.length%3!=0}}">
+        </view>
+    </view>
+</view>

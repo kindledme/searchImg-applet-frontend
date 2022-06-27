@@ -1,0 +1,137 @@
+/**index.wxss**/
+image{
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  /* overflow: hidden; */
+}
+.banner{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  border-radius: 10rpx;
+}
+.bannerimg {
+  width: 100%;
+}
+.tetpos{
+  position: absolute;
+  top: 100rpx;
+  left: 8vw;
+  font-size: 46rpx;
+  color: #ffffff;
+}
+.recommend-box{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+.recommend-box .title{
+  margin-bottom: 20rpx;
+}
+.recommend-box .img-box{
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-self: flex-start;
+  overflow-x: scroll;
+}
+.recommend-box .img-box .img-item{
+  box-sizing: border-box;
+  margin-right: 20rpx;
+}
+.recommend-box .img-box .img-item .tu{
+  width: 180rpx;
+  height: 160rpx;
+  box-sizing: border-box;
+  border-radius: 20rpx;
+  position: relative;
+}
+.recommend-box .img-box .img-item .tu .shuz{
+  position: absolute;
+  bottom: 10rpx;
+  right: 10rpx;
+  font-size: 26rpx;
+  color: #ffffff;
+}
+.recommend-box .img-box .img-item .tu image{
+  width: 180rpx;
+  height: 160rpx;
+  /* box-sizing: border-box; */
+  border-radius: 20rpx;
+}
+.recommend-box .img-box .img-item .wenzi{
+  /* width: 100%; */
+  width: 180rpx;
+  height: 160rpx;
+  background-color: rgb(139,190,242);
+  box-sizing: border-box;
+  padding: 30rpx 6rpx 0;
+  border-radius: 20rpx;
+}
+.recommend-box .img-box .img-item .biaoq{
+  font-size: 24rpx;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+  padding: 20rpx 0;
+}
+
+
+.new-box{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+}
+.new-box .title{
+  margin-bottom: 20rpx;
+}
+.guding{
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+  width: 40rpx;
+  height: 40rpx;
+}
+.flex-rowbox{
+  display: flex;
+  width: 100%;
+  box-sizing: border-box;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.flex-colbox{
+  display: flex;
+  width: 100%;
+  box-sizing: border-box;
+  flex-direction: column;
+  /* justify-content: space-between;
+  align-items: center; */
+}
+.btn{
+  box-sizing: border-box;
+  width: 80rpx;
+  height: 80rpx;
+  background-color: #ffffff;
+  position: fixed;
+  bottom: 20%;
+  right: 20rpx;
+  border-radius: 50%;
+}
+.video3{
+  width: 100%;
+  height: 195rpx;
+  margin-top: 20rpx;
+}
+.video2{
+  width: 100%;
+  height: 410rpx;
+}
+.video1{
+  width: 100%;
+  height: 210rpx;
+}

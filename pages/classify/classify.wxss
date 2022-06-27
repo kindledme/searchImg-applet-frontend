@@ -1,0 +1,162 @@
+image{
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+.inputs {
+    display: flex;
+    align-items: center;
+    /* background-color: #66C7FF; */
+}
+.type-box{
+    width: 100%;
+    box-sizing: border-box;
+    /* margin-top: 60rpx; */
+    padding: 50rpx 20rpx;
+}
+.type-box .title{
+    margin-bottom: 20rpx;
+}
+.flex-rowbox{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.item{
+    /* background-color: aqua; */
+    width: 48%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 20rpx 30rpx ;
+    padding: 20rpx;
+    box-shadow: 3px 3px 8px 3px rgb(241, 241, 241);
+}
+.item .wenz{
+    margin-left:30rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.item .wenz .tis{
+    display: inline-block;
+    margin-bottom:10rpx;
+    
+}
+
+.recommend-box{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+  }
+  
+  .recommend-box .title{
+    margin-bottom: 20rpx;
+  }
+  .recommend-box .img-box{
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-self: flex-start;
+    overflow-x: scroll;
+  }
+  .recommend-box .img-box .img-item{
+    box-sizing: border-box;
+    margin-right: 20rpx;
+  }
+  .recommend-box .img-box .img-item .tu{
+    width: 180rpx;
+    height: 160rpx;
+    box-sizing: border-box;
+    border-radius: 20rpx;
+    position: relative;
+  }
+  .recommend-box .img-box .img-item .tus{
+    width: 120rpx;
+    height: 120rpx;
+    border-radius: 50%;
+    box-sizing: border-box;
+    box-shadow: 3px 8px 8px 3px rgb(219, 216, 216);
+    /* border-radius: 20rpx; */
+    /* position: relative; */
+  }
+  .recommend-box .img-box .img-item .tu .shuz{
+    position: absolute;
+    bottom: 10rpx;
+    right: 10rpx;
+    font-size: 26rpx;
+    color: #ffffff;
+  }
+  /* .recommend-box .img-box .img-item .tu .colorbox{
+    width: 120rpx;
+    height: 120rpx;
+    border-radius: 50%;
+  } */
+  .recommend-box .img-box .img-item .tu image{
+    width: 180rpx;
+    height: 160rpx;
+    border-radius: 20rpx;
+  }
+  .recommend-box .img-box .img-item .wenzi{
+    /* width: 100%; */
+    width: 180rpx;
+    height: 160rpx;
+    background-color: rgb(139,190,242);
+    box-sizing: border-box;
+    padding: 30rpx 6rpx 0;
+    border-radius: 20rpx;
+  }
+  .recommend-box .img-box .img-item .biaoq{
+    font-size: 24rpx;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    padding: 20rpx 0;
+  }
+  .new-box{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+  }
+  .new-box .title{
+    margin-bottom: 20rpx;
+  }
+  .flex-rowbox{
+    display: flex;
+    width: 100%;
+    box-sizing: border-box;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .flex-rowbox .words{
+      background-color: rgb(139,190,242);
+      width: 100%;
+      height: 210rpx;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20rpx;
+  }
+  .flex-colbox{
+    display: flex;
+    width: 100%;
+    box-sizing: border-box;
+    flex-direction: column;
+    /* justify-content: space-between;
+    align-items: center; */
+  }
+  .btn{
+    box-sizing: border-box;
+    width: 80rpx;
+    height: 80rpx;
+    background-color: #ffffff;
+    position: fixed;
+    bottom: 20%;
+    right: 20rpx;
+    border-radius: 50%;
+  }  

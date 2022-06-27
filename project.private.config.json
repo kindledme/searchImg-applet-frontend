@@ -1,0 +1,102 @@
+{
+    "setting": {},
+    "condition": {
+        "plugin": {
+            "list": []
+        },
+        "game": {
+            "list": []
+        },
+        "gamePlugin": {
+            "list": []
+        },
+        "miniprogram": {
+            "list": [
+                {
+                    "name": "pages/alldata/alldata",
+                    "pathName": "pages/alldata/alldata",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/detail/detail",
+                    "pathName": "pages/detail/detail",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/bigimg/bigimg",
+                    "pathName": "pages/bigimg/bigimg",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/alldata/alldata",
+                    "pathName": "pages/alldata/alldata",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/detail/detail",
+                    "pathName": "pages/detail/detail",
+                    "query": "id=1",
+                    "scene": null
+                },
+                {
+                    "name": "pages/alldata/alldata",
+                    "pathName": "pages/alldata/alldata",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/detail/detail",
+                    "pathName": "pages/detail/detail",
+                    "query": "id=13",
+                    "scene": null
+                },
+                {
+                    "name": "pages/detail/detail",
+                    "pathName": "pages/detail/detail",
+                    "query": "id=30",
+                    "scene": null
+                },
+                {
+                    "name": "pages/alldata/alldata",
+                    "pathName": "pages/alldata/alldata",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/classify/classify",
+                    "pathName": "pages/classify/classify",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/alldata/alldata",
+                    "pathName": "pages/alldata/alldata",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/alldata/alldata",
+                    "pathName": "pages/alldata/alldata",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/alldata/alldata",
+                    "pathName": "pages/alldata/alldata",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/classify/classify",
+                    "pathName": "pages/classify/classify",
+                    "query": "",
+                    "scene": null
+                }
+            ]
+        }
+    }
+}

@@ -1,0 +1,76 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="banner">
+    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{true}}" interval="{{2000}}" duration="{{500}}" circular="{{true}}" style="height: 320rpx;overflow:hidden;border-radius:10rpx; transform: translateY(0);box-sizing: border-box;box-shadow: 3px 3px 8px 3px rgb(241, 241, 241);position: relative;">
+      <block wx:for="{{background}}" wx:key="key">
+        <swiper-item>
+          <!-- <image src="../../image/img/index1.jpep" class="bannerimg" /> -->
+          <image src="{{item.picUrl}}" class="bannerimg" />
+          <view class="tetpos">{{item.description}}</view>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <view class="recommend-box">
+    <view class="title moren">推荐标签</view>
+    <view class="img-box">
+      <view class="img-item" bindtap="navToalldata">
+        <view class="wenzi"> 
+           <view style="font-size: 26rpx;color: #ffff;">更多推荐标签</view>
+          <view style="font-size: 24rpx;color: #ffff;">立即查看></view>
+        </view>
+        <view class="biaoq">全部标签</view>
+      </view>
+      <view class="img-item" wx:for="{{artLis}}" bindtap="navToalldata2" data-tagid="{{item.id}}" >
+        <view class="tu">
+          <image  mode="aspectFill" src="{{item.picUrl}}"></image>
+          <view class="shuz">{{item.count}}</view>
+        </view>
+        <view class="biaoq">{{item.name}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="new-box">
+    <view class="title moren">最新推荐</view>
+    <view class="flex-rowbox">
+      <view style="width: 65%;position: relative;" bindtap="navTodetail1">
+        <image wx:if="{{newartListeach[0].type==1}}" style="width: 100%;height: 410rpx;" mode="aspectFill" src="{{newartListeach[0].picUrl}}"></image>
+        <video class="video2" wx:if="{{newartListeach[0].type==2}}"  objectFit="cover" controls   src="{{newartListeach[0].picUrl}}" />
+        <image wx:if="{{newartListeach[0].conunt>1}}" class="guding" mode="aspectFill" src="../../image/moreimg.png"></image>
+      </view>
+      <view style="width: 30%;" class="flex-colbox">
+      <view style="position: relative;" bindtap="navTodetail2">
+        <image wx:if="{{newartListeach[1].type==1}}" style="width: 100%;height: 195rpx;" mode="aspectFill" src="{{newartListeach[1].picUrl}}"></image>
+        <video class="video3" wx:if="{{newartListeach[1].type==2}}"  objectFit="cover" controls  src="{{newartListeach[1].picUrl}}" />
+        <image wx:if="{{newartListeach[1].conunt>1}}" class="guding" mode="aspectFill" src="../../image/moreimg.png"></image>
+      </view>
+       <view style="position: relative;" bindtap="navTodetail3">
+        <image wx:if="{{newartListeach[2].type==1}}" style="width: 100%;height: 195rpx;margin-top: 20rpx;" mode="aspectFill" src="{{newartListeach[2].picUrl}}"></image>
+        <video class="video3" wx:if="{{newartListeach[2].type==2}}"  objectFit="cover" controls   src="{{newartListeach[2].picUrl}}" />
+        <image wx:if="{{newartListeach[2].conunt>1}}" class="guding" mode="aspectFill" src="../../image/moreimg.png"></image>
+       </view>
+       
+      </view>
+    </view>
+    <view class="flex-rowbox" >
+      <view style="width: 30%;position: relative;margin-top: 20rpx;" wx:for="{{newartList}}" bindtap="navTodetail" data-id="{{item.id}}">
+        <image wx:if="{{item.type==1}}" style="width: 100%;height: 210rpx;" mode="aspectFill" src="{{item.picUrl}}"></image>
+        <video wx:if="{{item.type==2}}"  objectFit="cover" controls class="video1" src="{{item.picUrl}}" />
+        <image wx:if="{{item.conunt>1}}" class="guding" mode="aspectFill" src="../../image/moreimg.png"></image>
+        
+      </view>
+      
+    </view>
+    <!-- <view class="flex-rowbox" style="margin-top: 20rpx;">
+      <view style="width: 30%;">
+        <image style="width: 100%;height: 210rpx;" mode="aspectFill" src="../../image/img/index3.jpeg"></image>
+      </view>
+      <view style="width: 65%;">
+        <image style="width: 100%;height: 210rpx;" mode="aspectFill" src="../../image/img/index3.jpeg"></image>
+      </view>
+    </view> -->
+  </view>
+  <!-- <view class="btn">
+    <image style="padding: 10rpx;" mode="scaleToFill" src="../../image/down.png"></image>
+  </view> -->
+</view>

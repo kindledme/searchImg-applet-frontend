@@ -1,0 +1,70 @@
+<view class="container">
+    <view class="num">{{current+1}}/{{form.pictureData.length}}</view>
+    <view class="pic-box">
+
+
+        <view bindtap="navToimg">
+            <swiper indicator-dots="{{indicatorDots}}" bindchange="swiperChange"  autoplay="{{false}}" interval="{{2000}}" duration="{{500}}" circular="{{true}}" style="height: 400rpx;overflow:hidden;">
+                <block wx:for="{{form.pictureData}}" wx:key="key" wx:for-index="imgindex">
+                    <swiper-item>
+                        <!-- <image src="../../image/img/index1.jpep" class="bannerimg" /> -->
+                        <video wx:if="{{form.type==2}}" objectFit="cover" controls  style="width: 100%;" src="{{item.picUrl}}"  />
+                        <image wx:if="{{form.type==1}}" src="{{item.picUrl}}" class="bannerimg" />
+                    </swiper-item>
+                </block>
+            </swiper>
+
+            <!-- <image style="width: 100%;height: 60vw;" mode="aspectFill" src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fwx3.sinaimg.cn%2Fmw690%2F007unxg2ly1gzgbxj0sggj31b20s00xd.jpg&refer=http%3A%2F%2Fwx3.sinaimg.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1648212764&t=0f5f770d857a4972da1d3b7f3c3724fa"></image> -->
+        </view>
+    </view>
+    <view class="info">
+        <view class="info-tit">
+            标签信息
+        </view>
+        <view class="info-cont">
+            <view class="item" wx:for="{{form.pictureData[current].picTagData}}">
+                <view class="at">{{item.categoryName}}</view>
+                <view class="bt">{{item.name}}</view>
+            </view>
+            <!-- <view class="item">
+                <view class="at">时间</view>
+                <view class="bt">2022年02月01日 星期一 下午13：00</view>
+            </view>
+            <view class="item">
+                <view class="at">地点</view>
+                <view class="bt">张家口</view>
+            </view>
+            <view class="item">
+                <view class="at">人物</view>
+                <view class="bt">张洋铭、谷爱玲</view>
+            </view> -->
+
+        </view>
+        <!-- <view class="info-tit">
+            标签信息
+        </view>
+        <view class="info-cont">
+            <view class="item">
+                <view class="at">图片尺寸</view>
+                <view class="bt">1200*480</view>
+            </view>
+            <view class="item">
+                <view class="at">大小</view>
+                <view class="bt">100M</view>
+            </view>
+            <view class="item">
+                <view class="at">光圈</view>
+                <view class="bt">1.90</view>
+            </view>
+            <view class="item">
+                <view class="at">ISO</view>
+                <view class="bt">32</view>
+            </view>
+
+        </view> -->
+    </view>
+    <view class="down" bindtap="dowres">
+        <image mode="aspectFill" src="../../image/wdown.png"></image>
+        <view>下载</view>
+    </view>
+</view>

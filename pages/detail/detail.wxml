@@ -1,0 +1,100 @@
+<view class="container">
+    <!-- 标题 -->
+    <view class="title">
+        <view class="moren">{{form.description}}</view>
+        <view style="margin-top: 15rpx;">{{form.createTime}} 发布</view>
+    </view>
+    <!-- 图片模块 -->
+    <view class="pic-box">
+        <view  bindtap="navToimg" data-id="{{form.id}}" >
+            <image wx:if="{{form.type==1}}" style="width: 100%;height: 60vw;" mode="aspectFill" src="{{form.pictureData[num].picUrl}}"></image>
+            <video  wx:if="{{form.type==2}}" objectFit="cover" controls class="video7"  src="{{form.pictureData[num].picUrl}}"  />
+        </view>
+
+        <view class="imglist">
+            <view class="{{num==index?'blue-border':''}}" wx:for="{{form.pictureData}}" bindtap="clickthis"  data-id="{{item.id}}">
+                <image wx:if="{{form.type==1}}" mode="heightFix" src="{{item.picUrl}}"></image>
+                <video  wx:if="{{form.type==2}}" class="video9" objectFit="cover" controls  src="{{item.picUrl}}"  />
+            </view>
+        </view>
+        <view class="bqs">
+            <view wx:if="{{form.keywords}}">#{{form.keywords}}</view>
+
+        </view>
+    </view>
+    <!-- 图文信息 -->
+    <view class="info">
+        <view class="info-tit">
+            <view bindtap="tapchange" class="{{tap==1?'bule':''}}" style="margin-right: 20rpx;">标签信息</view>
+            <!-- <view bindtap="tapchange" class="{{tap==2?'bule':''}}">图片信息</view> -->
+        </view>
+        <view wx:if="{{tap==1}}" class="info-cont">
+            <view class="item" wx:for="{{form.pictureData[num].picTagData}}">
+                <view class="at">{{item.categoryName}}</view>
+                <view class="bt">{{item.name}}</view>
+            </view>
+            <!-- <view class="item">
+                <view class="at">时间</view>
+                <view class="bt">2022年02月01日 星期一 下午13：00</view>
+            </view>
+            <view class="item">
+                <view class="at">地点</view>
+                <view class="bt">张家口</view>
+            </view>
+            <view class="item">
+                <view class="at">人物</view>
+                <view class="bt">张洋铭、谷爱玲</view>
+            </view> -->
+
+        </view>
+        <!-- <view wx:if="{{tap==2}}" class="info-cont">
+            <view class="item">
+                <view class="at">图片尺寸</view>
+                <view class="bt">1200*480</view>
+            </view>
+            <view class="item">
+                <view class="at">大小</view>
+                <view class="bt">100M</view>
+            </view>
+            <view class="item">
+                <view class="at">光圈</view>
+                <view class="bt">1.90</view>
+            </view>
+            <view class="item">
+                <view class="at">ISO</view>
+                <view class="bt">32</view>
+            </view>
+
+        </view> -->
+    </view>
+    <!-- 操作 -->
+    <view class="btns-box">
+        <view class="btn-item" >
+            <image mode="aspectFill" src="../../image/watch.jpg"></image>
+            <view>查看{{form.numViews}}</view>
+        </view>
+        <view class="btn-item">
+            <view wx:if="{{form.isLike==0}}" bindtap="like">
+                <image mode="aspectFill" src="../../image/collect.jpg"></image>
+            </view>
+            <view wx:if="{{form.isLike==1}}" bindtap="qxlike">
+                <image mode="aspectFill" src="../../image/collectclick.jpg"></image>
+            </view>
+
+            <view>喜欢</view>
+        </view>
+        <view class="btn-item">
+            <view wx:if="{{form.isCollect==0}}" bindtap="collect">
+                <image mode="aspectFill" src="../../image/sc.jpg"></image>
+            </view>
+            <view wx:if="{{form.isCollect==1}}" bindtap="qxcollect">
+                <image mode="aspectFill" src="../../image/scclick.jpg"></image>
+            </view>
+            <view>收藏</view>
+        </view>
+        <view class="btn-item" bindtap="dowres">
+            <image mode="aspectFill" src="../../image/downup.jpg"></image>
+            <view>下载</view>
+        </view>
+    </view>
+</view>

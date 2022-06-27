@@ -1,0 +1,140 @@
+<template name="item">
+    <view class="item" bindtap="navTodetail" data-id="{{id}}">
+        <image wx:if="{{type==1}}" class="item-img" src="{{picUrl}}" mode="widthFix"></image>
+        <video wx:if="{{type==2}}"  objectFit="cover" controls class="video1" src="{{picUrl}}" />
+        <view class="item-title-box">
+            <view url="url" class="item-title">{{description}}</view>
+            <!-- <image class="arrow" src="../../image/arrow.png"></image>   -->
+        </view>
+        <view class="name">
+            <view class="name-item">
+                <image src="../../image/watch.jpg"></image>
+                <text>{{numViews}}</text>
+            </view>
+            <view class="name-item">
+                <image src="../../image/collect.jpg"></image>
+                <text>{{numLike}}</text>
+            </view>
+            <view class="name-item">
+                <image src="../../image/downup.jpg"></image>
+                <text>{{numDownload}}</text>
+            </view>
+        </view>
+    </view>
+
+</template>
+<view class="container">
+    <!-- 搜索框 -->
+    <view class="inputs">
+        <view style="width: 100%;">
+            <van-search custom-class="inputcss" value="{{ value }}" bind:change="onSearch" shape="round" use-action-slot background="#ffff" placeholder="请输入搜索关键词" bind:focus="onClick">
+                <!-- <view slot="action" bind:tap="onClick">搜索</view> -->
+            </van-search>
+        </view>
+        <!-- <image class="touimg" wx:if="{{userinfo.avatar}}" src="{{userinfo.avatar}}" bind:tap='navToperson' />
+        <image wx:if="{{userinfo.avatar==''}}" src="../../image/sy-wd@2x.png" bind:tap='navToperson' /> -->
+    </view>
+    <wxs module='fy'>
+        function test(bigindex, sindex) {
+            if (bigindex.indexOf(sindex) != -1) {
+                console.log('结果')
+                return true
+            } else {
+                console.log('结果')
+                return false
+            }
+        }
+        module.exports.test = test
+    </wxs>
+    <!-- 筛选模块 -->
+    <view class="screening">
+        <van-dropdown-menu active-color="#3E92EA">
+            <van-dropdown-item title="文件类型" id="ref3">
+                <view class="dropbox">
+                    <view class="taglist">
+                        <view class="{{cagindexList.length==0?'tagblue':''}}" bindtap="classcag">全部</view>
+                        <view wx:for="{{caglist}}" data-index="{{index}}" data-id="{{item.id}}" class="{{fy.test(cagindexList,item.id)?'tagblue':''}}" bindtap="activecag">{{item.name}}</view>
+                    </view>
+                </view>
+                <view class="tagbtn">
+                    <view bindtap="classcag">重置</view>
+                    <view class="bl" bindtap="chosecag">筛选</view>
+                </view>
+            </van-dropdown-item>
+            <van-dropdown-item id="ref" title="智能分类">
+                <view class="dropbox" wx:for="{{taglist}}" wx:for-index="taglistindex" wx:key="index" wx:for-item="tagitem">
+                    <view class="tagname">{{tagitem.categoryName}}</view>
+                    <view class="taglist">
+                        <view class="{{tagitem.selectList.length==0?'tagblue':''}}" bindtap="classno" data-taglistindex="{{taglistindex}}">全部</view>
+                        <view wx:for="{{tagitem.tagData}}" wx:for-item="cell" wx:for-index="cellindex" data-index="{{cellindex}}" data-taglistindex="{{taglistindex}}" class="{{fy.test(tagitem.selectList,cellindex)?'tagblue':''}}" bindtap="active">{{cell.name}}</view>
+                    </view>
+                </view>
+                <view class="tagbtn">
+                    <view bindtap="update">重置</view>
+                    <view class="bl" bindtap="chosetag">筛选</view>
+                </view>
+            </van-dropdown-item>
+            <van-dropdown-item id="ref4" title="按时间">
+                <!-- <view>
+                <van-calendar  show-title="{{false}}" poppable="{{ false }}"  type="range" :min-date="minDate" :max-date="maxDate" bind:close="onClose" bind:confirm="onConfirm" />
+                </view> -->
+                <view>
+                    <van-datetime-picker show-toolbar="{{false}}" type="year-month" value="{{ currentDate }}" min-date="{{ minDate }}" bind:input="onInput" />
+                </view>
+                <view class="tagbtn">
+                    <view bindtap="classtime">重置</view>
+                    <view class="bl" bindtap="chosetime">筛选</view>
+                </view>
+            </van-dropdown-item>
+            <van-dropdown-item id="ref2" title="按标签">
+                <view class="dropbox" wx:for="{{bqlist}}" wx:for-index="bqlistindex" wx:key="index" wx:for-item="bqitem">
+                    <view class="tagname">{{bqitem.categoryName}}</view>
+                    <view class="taglist">
+                        <view class="{{bqitem.selectList.length==0?'tagblue':''}}" bindtap="classno2" data-bqlistindex="{{bqlistindex}}">全部</view>
+                        <view wx:for="{{bqitem.tagData}}" wx:for-item="cell" wx:for-index="cellindex" data-index="{{cellindex}}" data-bqlistindex="{{bqlistindex}}" class="{{fy.test(bqitem.selectList,cellindex)?'tagblue':''}}" bindtap="active2">{{cell.name}}</view>
+                    </view>
+                </view>
+                <view class="tagbtn">
+                    <view bindtap="update2">重置</view>
+                    <view class="bl" bindtap="chosetag2">筛选</view>
+                </view>
+            </van-dropdown-item>
+        </van-dropdown-menu>
+    </view>
+    <!-- 排序模块 -->
+    <view class="sort-box">
+        <view class="{{numviews==false?'sort-item':'bluesort,sort-item'}}" bindtap="sortllan1">
+            <text>浏览</text>
+            <image wx:if="{{numviews==false}}" mode="aspectFill" src="../../image/sort.png"></image>
+            <image wx:if="{{numviews==true}}" mode="aspectFill" src="../../image/sortb.png"></image>
+        </view>
+        <view class="{{numlike==false?'sort-item':'bluesort,sort-item'}}" bindtap="sortllan">
+            <text>喜欢</text>
+            <image wx:if="{{numlike==false}}" mode="aspectFill" src="../../image/sort.png"></image>
+            <image wx:if="{{numlike==true}}" mode="aspectFill" src="../../image/sortb.png"></image>
+        </view>
+        <view class="{{numdownload==false?'sort-item':'bluesort,sort-item'}}" bindtap="sortllan2">
+            <text>下载</text>
+            <image wx:if="{{numdownload==false}}" mode="aspectFill" src="../../image/sort.png"></image>
+            <image wx:if="{{numdownload==true}}" mode="aspectFill" src="../../image/sortb.png"></image>
+        </view>
+        <view class="{{createtime==false?'sort-item':'bluesort,sort-item'}}" bindtap="sortllan3">
+            <text>时间</text>
+            <image wx:if="{{createtime==false}}" mode="aspectFill" src="../../image/sort.png"></image>
+            <image wx:if="{{createtime==true}}" mode="aspectFill" src="../../image/sortb.png"></image>
+        </view>
+    </view>
+    <!-- 瀑布流数据 -->
+    <view class="content">
+        <view class="left">
+            <block wx:for="{{note}}" wx:key="">
+                <template is="item" data="{{...item}}" wx:if="{{index%2==0}}"></template>
+            </block>
+        </view>
+        <view class="right">
+            <block wx:for="{{note}}" wx:key="">
+                <template is="item" data="{{...item}}" wx:if="{{index%2==1}}"></template>
+            </block>
+        </view>
+    </view>
+</view>

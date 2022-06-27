@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText": "全部",
+  "usingComponents": {
+    "van-button": "../../vant/weapp/dist/button/index",
+    "van-search": "../../vant/weapp/dist/search/index",
+    "van-dropdown-menu": "../../vant/weapp/dist/dropdown-menu/index",
+  "van-dropdown-item": "../../vant/weapp/dist/dropdown-item/index",
+  "van-calendar": "../../vant/weapp/dist/calendar/index",
+  "van-datetime-picker": "../../vant/weapp/dist/datetime-picker/index"
+
+  }
+}
